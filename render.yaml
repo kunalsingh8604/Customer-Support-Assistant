@@ -14,6 +14,6 @@ services:
         value: production
       - key: DB_PATH
         value: /tmp/support.db
-      - key: CORS_ORIGIN
-        sync: false
+      - key: FRONTEND_URL
+        value: https://customer-support-assistant-one.vercel.app
       # PORT is injected automatically by Render

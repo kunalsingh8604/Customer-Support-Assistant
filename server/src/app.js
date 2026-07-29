@@ -8,22 +8,22 @@ import { logger, logError } from '../utils/logger.js';
 export function createApp() {
   const app = express();
 
-  const allowedOrigins = (
-    process.env.CORS_ORIGIN || 'http://localhost:5173'
-  )
-    .split(',')
-    .map((origin) => origin.trim())
-    .filter(Boolean);
+  const allowedOrigins = [
+    'http://localhost:5173',
+    'https://customer-support-assistant-one.vercel.app',
+    process.env.FRONTEND_URL,
+  ].filter(Boolean);
 
   app.use(
     cors({
       origin(origin, callback) {
-        if (!origin || allowedOrigins.includes(origin) || allowedOrigins.includes('*')) {
+        if (!origin || allowedOrigins.includes(origin)) {
           callback(null, true);
-          return;
+        } else {
+          callback(new Error('Not allowed by CORS'));
         }
-        callback(new Error(`CORS blocked for origin: ${origin}`));
       },
+      credentials: true,
       methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
       allowedHeaders: ['Content-Type', 'Authorization', 'X-Request-Id'],
     })
