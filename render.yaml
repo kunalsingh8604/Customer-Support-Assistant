@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: customer-support-assistant-api
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: cd server && npm install
+    startCommand: cd server && node index.js
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: NODE_ENV
+        value: production
+      - key: DB_PATH
+        value: /tmp/support.db
+      - key: CORS_ORIGIN
+        sync: false
+      # PORT is injected automatically by Render

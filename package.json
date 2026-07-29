@@ -1,0 +1,19 @@
+{
+  "name": "customer-support-assistant",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Full-stack Customer Support Assistant",
+  "scripts": {
+    "dev": "concurrently -k -n server,client -c blue,green \"npm --prefix server run dev\" \"npm --prefix client run dev\"",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "start": "npm --prefix server start",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "npm --prefix server test",
+    "test:client": "npm --prefix client test",
+    "test:coverage": "npm --prefix server run test:coverage && npm --prefix client run test:coverage"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
