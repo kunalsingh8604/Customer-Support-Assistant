@@ -317,4 +317,4 @@ See [AGENT_USAGE.md](./AGENT_USAGE.md) for tools used, AI-generated portions, pr
 
 **Kunal Singh** — [github.com/kunalsingh8604](https://github.com/kunalsingh8604)
 
-Assignment: **AGGROSO Option A — Knowledge-Grounded Customer Support Assistant**
+
